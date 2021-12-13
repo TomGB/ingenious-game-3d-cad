@@ -38,7 +38,11 @@ module hole(i, j) {
 module holes() {
     for ( j = [0 : rows - 1] ){
         for ( i = [0 : cols - 1] ){
-            hole(i, j);
+            difference() {
+                cube([circleD + (rows - 1) * circleGap + 2, circleD + (cols - 1) * circleGap + 2, baseDepth])
+                hole(i, j);
+            }
+            
         }
     }
 }
@@ -71,10 +75,8 @@ module cutOut() {
 scale(10) {
     // difference() {
     //     difference() {
-            difference() {
-                cube([baseLength, baseWidth, baseDepth]);
-                holes();
-            }
+
+            holes();
 
             holeNumbers();
             // cutOut();
