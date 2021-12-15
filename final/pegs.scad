@@ -1,19 +1,20 @@
-include <Star.scad>;
+include <../util/Star.scad>;
 
-pegBaseHeight = 0.6;
-pegTopHeight = 1;
-symbolHeight = 0.1;
+pegBaseHeight = 2;
+pegTopHeight = 8;
+symbolHeight = 0.6;
 
-pegBaseD = 0.5;
-pegTopD = 0.8;
-symbolD = 0.65;
+pegTopD = 5.8;
+pegBaseD = 4.8;
+symbolD = 4;
 
-pegSpacing = 2;
+pegSpacing = 10;
 
 module Peg(pegColor, topSymbol){
     color(pegColor)
-    linear_extrude(pegBaseHeight)
-    circle(d=pegBaseD, $fn=50);
+    // linear_extrude(pegBaseHeight)
+    cylinder(pegBaseHeight, d1=pegBaseD, d2=pegTopD, $fn=50);
+    // circle(d=pegBaseD, $fn=50);
 
     color(pegColor)
     translate([0,0,pegBaseHeight])
@@ -29,7 +30,6 @@ translate([pegSpacing * 0,0]){
     linear_extrude(symbolHeight)
     circle (d=symbolD, $fn=50);
 }
-
 
 translate([pegSpacing,0]){
     pegColor = "orange";

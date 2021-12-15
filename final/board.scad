@@ -6,9 +6,9 @@ circleGap = 3;
 
 bevelDepth = 1;
 
-baseDepth = 1.5;
+baseDepth = 2;
 
-baseMargin = 5;
+baseMargin = 4;
 
 cols = 6;
 rows = 19;
@@ -16,7 +16,7 @@ rows = 19;
 // cols = 1;
 // rows = 1;
 
-extraTextAreaWidth = 15;
+extraTextAreaWidth = 5;
 
 textDepth = 0.5;
 
@@ -46,10 +46,10 @@ module holes() {
                 (circleGap + circleD) * j + circleD / 2,
                 (circleGap + circleD) * i + circleD / 2 + extraTextAreaWidth,
             ])
-            difference() {
-                cube([circleD + circleGap, circleD + circleGap, baseDepth]);
+            // difference() {
+            //     cube([circleD + circleGap, circleD + circleGap, baseDepth]);
                 hole();
-            }
+            // }
         }
     }
 }
@@ -57,8 +57,8 @@ module holes() {
 module holeNumbers() {
      for ( j = [0 : rows - 2] ){ 
         translate([
-            (circleGap + circleD) * j + circleD / 2 + baseMargin,
-            9,
+            (circleGap + circleD) * j + circleD / 2 + baseMargin + 0.5,
+            5,
             baseDepth
         ])
         rotate([0, 0, 90])
@@ -79,16 +79,9 @@ module cutOut() {
     }
 }
 
-// difference() {
-//     difference() {
+holeNumbers();
 
-        holes();
-
-        holeNumbers();
-        // cutOut();
-    // }
-
-    // translate([0,baseWidth - 6.2,0]) {
-    //     cube([baseLength, baseWidth, baseDepth * 2]);
-    // }
-// }
+difference() {
+    cube([baseLength, baseWidth, baseDepth]);
+    holes();
+}
