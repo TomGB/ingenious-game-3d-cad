@@ -2,7 +2,7 @@ include <../util/Star.scad>;
 
 pegBaseHeight = 2;
 pegTopHeight = 8;
-symbolHeight = 0.6;
+symbolHeight = 0.8;
 
 pegTopD = 5.8;
 pegBaseD = 4.8;
@@ -41,28 +41,28 @@ module Peg(pegColor, topSymbol){
 //     circle (d=symbolD, $fn=6);
 // }
 
-// translate([pegSpacing * 2,0]){
-//     pegColor = "#f0f";
-//     Peg(pegColor);
-
-//     color(pegColor)
-//     translate([0,0,pegBaseHeight + pegTopHeight])
-//     linear_extrude(symbolHeight)
-//     difference(){
-//         circle (d=symbolD, $fn=50);
-//         circle (d=symbolD - symbolD / 5, $fn=50);
-//     }
-// }
-
-translate([pegSpacing * 3,0]){
-    pegColor = "#55f";
+translate([pegSpacing * 2,0]){
+    pegColor = "#f0f";
     Peg(pegColor);
 
     color(pegColor)
     translate([0,0,pegBaseHeight + pegTopHeight])
     linear_extrude(symbolHeight)
-    Star(6, symbolD/2, symbolD/2 - symbolD/4.5);
+    difference(){
+        circle (d=symbolD, $fn=50);
+        circle (d=symbolD - symbolD / 3, $fn=50);
+    }
 }
+
+// translate([pegSpacing * 3,0]){
+//     pegColor = "#55f";
+//     Peg(pegColor);
+
+//     color(pegColor)
+//     translate([0,0,pegBaseHeight + pegTopHeight])
+//     linear_extrude(symbolHeight)
+//     Star(6, symbolD/2, symbolD/2 - symbolD/4.5);
+// }
 
 // translate([pegSpacing * 4,0]){
 //     pegColor = "yellow";

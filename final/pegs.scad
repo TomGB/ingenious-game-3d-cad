@@ -2,7 +2,7 @@ include <../util/Star.scad>;
 
 pegBaseHeight = 2;
 pegTopHeight = 8;
-symbolHeight = 0.6;
+symbolHeight = 0.8;
 
 pegTopD = 5.8;
 pegBaseD = 4.8;
@@ -50,7 +50,7 @@ translate([pegSpacing * 2,0]){
     linear_extrude(symbolHeight)
     difference(){
         circle (d=symbolD, $fn=50);
-        circle (d=symbolD - symbolD / 5, $fn=50);
+        circle (d=symbolD - symbolD / 3, $fn=50);
     }
 }
 

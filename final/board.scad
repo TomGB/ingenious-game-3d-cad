@@ -18,7 +18,7 @@ rows = 19;
 
 extraTextAreaWidth = 5;
 
-textDepth = 0.5;
+textDepth = 0.8;
 
 baseLength = rows * circleD + (rows - 1) * circleGap + 2 * baseMargin;
 baseWidth = cols * circleD + (cols - 1) * circleGap + 2 * baseMargin + extraTextAreaWidth;
@@ -65,7 +65,7 @@ module holeNumbers() {
         linear_extrude(textDepth)
         text(
             str(rows - j - 1),
-            font="tahoma",
+            font="tahoma:style=Bold",
             size = 3,
             halign= "center",
             valign="center"
