@@ -18,7 +18,7 @@ rows = 2;
 
 extraTextAreaWidth = 5;
 
-textDepth = 0.8;
+textDepth = 0.5;
 
 baseLength = rows * circleD + (rows - 1) * circleGap + 2 * baseMargin;
 baseWidth = cols * circleD + (cols - 1) * circleGap + 2 * baseMargin + extraTextAreaWidth;
