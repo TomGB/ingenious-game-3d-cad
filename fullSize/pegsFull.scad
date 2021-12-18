@@ -1,3 +1,3 @@
 include <../components/Pegs.scad>;
 
-Pegs(isTest = true);
+Pegs(isTest = false);

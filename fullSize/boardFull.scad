@@ -1,3 +1,3 @@
 include <../components/Board.scad>;
 
-Board(isTest = true);
+Board(isTest = false);
